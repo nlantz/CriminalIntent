@@ -1,16 +1,10 @@
 package com.nlantz.android.criminalintent;
 
+//Note "support" imports for backwards compatability
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 
 public class CrimeActivity extends FragmentActivity {
 
@@ -19,6 +13,19 @@ public class CrimeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crime);
 
+        //for honeycomb only it would be...
+        //FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+
+        //the fragment may already have been created and destroyed
+        //if that was the case it will have been returned by fm ^^^^^^^^^^^
+        //only create the fragment if this is the first time the program id being run
+        if(fragment==null){
+            fragment = new CrimeFragment();
+            fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
+        }
+        //CrimeActivity is now hosting CrimeFragment
     }
 
 }

@@ -15,7 +15,7 @@ public class Crime {
     private boolean mSolved;
 
 
-    public Crime(){
+    public Crime() {
         //Generate Unique Identifier
         mId = UUID.randomUUID();
         mDate = new Date();
@@ -50,5 +50,13 @@ public class Crime {
     }
 
 
+    //im not too sold on doing it this way.
+    //but this returns the title instead of the memory address when called by the system
+    //maybe use adapter to set title manually instead
+    //but it works i guess
+    @Override
+    public String toString(){
+        return mTitle;
+    }
 
 }

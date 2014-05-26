@@ -1,3 +1,14 @@
+//NOTE This is depreciated.
+// Code updated to pager activity
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
 package com.nlantz.android.criminalintent;
 
 //Note "support" imports for backwards compatability

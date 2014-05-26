@@ -52,8 +52,11 @@ public class CrimeListFragment extends ListFragment {
 
         //when you click on a crime, start the CrimeActivity
         //note getActivity gets this activity
-        Intent i = new Intent(getActivity(), CrimeActivity.class);
+        //Intent i = new Intent(getActivity(), CrimeActivity.class);
         //pass in which array element was clicked
+
+        //start Activity as a pager
+        Intent i = new Intent(getActivity(), CrimePagerActivity.class);
         i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
         //start that bitch
         startActivity(i);
